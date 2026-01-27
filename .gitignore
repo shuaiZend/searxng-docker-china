@@ -45,3 +45,6 @@ __pycache__/
 
 # 文档草稿
 DRAFT_*.md
+
+# 发布脚本（仅本地使用）
+publish_to_github.sh
