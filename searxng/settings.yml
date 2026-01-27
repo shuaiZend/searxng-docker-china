@@ -11,6 +11,12 @@ search:
   safe_search: 1
   autocomplete: ""
   default_lang: "zh-CN"
+  # 结果格式支持
+  formats:
+    - html
+    - json
+    - csv
+    - rss
   # 引擎错误后的惩罚时间（秒）- 增加以避免频繁触发防爬虫
   ban_time_on_fail: 10
   max_ban_time_on_fail: 60
