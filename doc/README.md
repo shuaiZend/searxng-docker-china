@@ -127,7 +127,7 @@ docker exec searxng ls /usr/local/searxng/searx/engines/
 
 ## 📝 更新记录
 
-- **2025-01-27**: 创建文档
+- **2026-01-27**: 创建文档
   - 完整配置指南
   - 快速参考卡片
   - 配置文件模板
@@ -136,4 +136,4 @@ docker exec searxng ls /usr/local/searxng/searx/engines/
 ---
 
 **维护者**: Claude Code Assistant
-**最后更新**: 2025-01-27
+**最后更新**: 2026-01-27
