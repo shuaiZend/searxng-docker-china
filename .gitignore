@@ -1,0 +1,47 @@
+# 环境变量文件
+.env
+.env.local
+.env.*.local
+
+# Docker 卷数据
+searxng/data/
+valkey-data2/
+searxng-data/
+caddy-data/
+caddy-config/
+
+# 日志文件
+*.log
+logs/
+
+# 备份文件
+*.backup
+*.bak
+*.old
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE 配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 临时文件
+tmp/
+temp/
+*.tmp
+
+# Python 相关
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+
+# 文档草稿
+DRAFT_*.md

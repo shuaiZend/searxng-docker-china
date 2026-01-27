@@ -1,0 +1,137 @@
+# SearXNG 配置模板
+# 复制此模板到 searxng/settings.yml 并根据需要修改
+
+# 使用默认配置（强烈推荐）
+use_default_settings: true
+
+# 服务器配置
+server:
+  secret_key: "CHANGE-THIS-TO-A-RANDOM-STRING"  # ⚠️ 必须修改！
+  limiter: false                                 # 公开实例设为 true
+  image_proxy: false                             # 图片代理
+  method: "POST"                                 # 请求方式
+
+# Redis/缓存配置
+redis:
+  url: redis://redis:6379/0                     # Docker 环境
+
+# 搜索配置
+search:
+  safe_search: 1                                 # 0=无, 1=中等, 2=严格
+  autocomplete: ""                               # 自动补全引擎
+  default_lang: "zh-CN"                          # 默认语言
+
+  # 防爬虫配置
+  ban_time_on_fail: 10                           # 失败惩罚（秒）
+  max_ban_time_on_fail: 60                       # 最大惩罚（秒）
+
+  suspended_times:
+    SearxEngineAccessDenied: 86400               # 403错误 - 24小时
+    SearxEngineCaptcha: 86400                    # CAPTCHA - 24小时
+    SearxEngineTooManyRequests: 7200             # 429错误 - 2小时
+    cf_SearxEngineCaptcha: 1296000               # Cloudflare - 15天
+    recaptcha_SearxEngineCaptcha: 604800         # ReCAPTCHA - 7天
+
+# 搜索引擎配置
+engines:
+  # ========== 稳定引擎（高权重） ==========
+
+  - name: bing
+    engine: bing
+    shortcut: bi
+    disabled: false
+
+  - name: bing images
+    engine: bing_images
+    shortcut: bii
+    disabled: false
+
+  - name: bing news
+    engine: bing_news
+    shortcut: bin
+    disabled: false
+
+  - name: bing videos
+    engine: bing_videos
+    shortcut: biv
+    disabled: false
+
+  - name: "360"
+    engine: 360search
+    shortcut: "360"
+    disabled: false
+    categories: [general, web]
+    timeout: 8.0
+
+  - name: sogou
+    engine: sogou
+    shortcut: sg
+    disabled: false
+    categories: [general, web]
+    timeout: 10.0
+
+  - name: quark
+    engine: quark
+    shortcut: qr
+    disabled: false
+    categories: [general, web]
+    timeout: 10.0
+
+  - name: wolframalpha
+    engine: wolframalpha_noapi
+    shortcut: wa
+    disabled: false
+    categories: [general, web]
+    timeout: 8.0
+
+  - name: google
+    engine: google
+    shortcut: go
+    disabled: false
+    categories: [general, web]
+
+  - name: duckduckgo
+    engine: duckduckgo_extra
+    shortcut: ddg
+    categories: [general, web]
+    ddg_category: web
+    disabled: false
+
+  # ========== 防爬虫引擎（低权重） ==========
+
+  - name: baidu
+    engine: baidu
+    shortcut: bd
+    disabled: false
+    weight: 0.3                                    # 降低权重避免封禁
+    timeout: 8.0
+    categories: [general, web]
+    about:
+      website: https://www.baidu.com
+      use_official_api: false
+      require_api_key: false
+      results: HTML
+      language: zh-CN
+
+# ========== 可选配置 ==========
+
+# 出站请求配置
+# outgoing:
+#   request_timeout: 15.0
+#   max_request_timeout: 20.0
+#   pool_connections: 50
+#   pool_maxsize: 10
+#   enable_http2: true
+
+# UI 配置
+# ui:
+#   theme_args:
+#     simple_style: auto  # auto/light/dark
+
+# 结果格式
+# search:
+#   formats:
+#     - html
+#     - json
+#     - csv
+#     - rss

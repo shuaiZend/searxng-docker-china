@@ -1,0 +1,104 @@
+use_default_settings: true
+server:
+  secret_key: "825d3338bfeaf148237c18ea0a3dcfefed667cf8c77e5832738067c2af4c39b0"
+  limiter: false
+  image_proxy: false
+
+redis:
+  url: redis://redis:6379/0
+
+search:
+  safe_search: 1
+  autocomplete: ""
+  default_lang: "zh-CN"
+  # 引擎错误后的惩罚时间（秒）- 增加以避免频繁触发防爬虫
+  ban_time_on_fail: 10
+  max_ban_time_on_fail: 60
+  suspended_times:
+    # 访问被拒绝时的暂停时间
+    SearxEngineAccessDenied: 86400
+    # CAPTCHA 时的暂停时间
+    SearxEngineCaptcha: 86400
+    # 请求过多时的暂停时间 (429错误)
+    SearxEngineTooManyRequests: 7200
+    # Cloudflare CAPTCHA
+    cf_SearxEngineCaptcha: 1296000
+    cf_SearxEngineAccessDenied: 86400
+    # ReCAPTCHA
+    recaptcha_SearxEngineCaptcha: 604800
+
+engines:
+  - name: bing
+    engine: bing
+    shortcut: bi
+    disabled: false
+
+  - name: bing images
+    engine: bing_images
+    shortcut: bii
+    disabled: false
+
+  - name: bing news
+    engine: bing_news
+    shortcut: bin
+    disabled: false
+
+  - name: bing videos
+    engine: bing_videos
+    shortcut: biv
+    disabled: false
+
+  - name: "360"
+    engine: 360search
+    shortcut: "360"
+    disabled: false
+    categories: [general, web]
+    timeout: 8.0
+
+  - name: sogou
+    engine: sogou
+    shortcut: sg
+    disabled: false
+    categories: [general, web]
+    timeout: 10.0
+
+  - name: quark
+    engine: quark
+    shortcut: qr
+    disabled: false
+    categories: [general, web]
+    timeout: 10.0
+
+  - name: wolframalpha
+    engine: wolframalpha_noapi
+    shortcut: wa
+    disabled: false
+    categories: [general, web]
+    timeout: 8.0
+
+  - name: google
+    engine: google
+    shortcut: go
+    disabled: false
+    categories: [general, web]
+
+  - name: duckduckgo
+    engine: duckduckgo_extra
+    shortcut: ddg
+    categories: [general, web]
+    ddg_category: web
+    disabled: false
+
+  - name: baidu
+    engine: baidu
+    shortcut: bd
+    disabled: false
+    categories: [general, web]
+    timeout: 8.0
+    weight: 0.3  # 降低权重，减少查询频率
+    about:
+      website: https://www.baidu.com
+      use_official_api: false
+      require_api_key: false
+      results: HTML
+      language: zh-CN
