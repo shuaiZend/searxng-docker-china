@@ -62,7 +62,7 @@ services:
 
 networks:
   ollama-net:
-    - external: true
+    external: true
 
 volumes:
   caddy-data:
