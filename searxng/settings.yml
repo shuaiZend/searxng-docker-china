@@ -514,14 +514,17 @@ engines:
   - name: bing images
     engine: bing_images
     shortcut: bii
+    disabled: false
 
   - name: bing news
     engine: bing_news
     shortcut: bin
+    disabled: false
 
   - name: bing videos
     engine: bing_videos
     shortcut: biv
+    disabled: false
 
   - name: bitchute
     engine: bitchute
@@ -1780,7 +1783,8 @@ engines:
     categories: [general]
     engine: quark
     shortcut: qk
-    disabled: true
+    disabled: false
+    timeout: 5.0
 
   - name: quark images
     quark_category: images
@@ -2294,7 +2298,7 @@ engines:
     engine: wolframalpha_noapi
     timeout: 6.0
     categories: general
-    disabled: true
+    disabled: false
 
   - name: wolframalpha_api
     # You can use the engine using the official stable API, but you need an API
