@@ -63,17 +63,17 @@ search:
   #   - fr
   #   - fr-BE
   # ban time in seconds after engine errors
-  ban_time_on_fail: 5
+  ban_time_on_fail: 10
   # max ban time in seconds after engine errors
-  max_ban_time_on_fail: 120
+  max_ban_time_on_fail: 60
   suspended_times:
     # Engine suspension time after error (in seconds; set to 0 to disable)
     # For error "Access denied" and "HTTP error [402, 403]"
-    SearxEngineAccessDenied: 180
+    SearxEngineAccessDenied: 84600
     # For error "CAPTCHA"
-    SearxEngineCaptcha: 3600
+    SearxEngineCaptcha: 84600
     # For error "Too many request" and "HTTP error 429"
-    SearxEngineTooManyRequests: 180
+    SearxEngineTooManyRequests: 7200
     # Cloudflare CAPTCHA
     cf_SearxEngineCaptcha: 1296000
     cf_SearxEngineAccessDenied: 86400
@@ -277,13 +277,14 @@ engines:
   - name: 360search
     engine: 360search
     shortcut: 360so
-    timeout: 10.0
+    categories: [general, web]
+    timeout: 5.0
     disabled: false
 
   - name: 360search videos
     engine: 360search_videos
     shortcut: 360sov
-    disabled: false
+    disabled: true
 
   - name: 9gag
     engine: 9gag
@@ -465,10 +466,18 @@ engines:
 
   - name: baidu
     baidu_category: general
-    categories: [general]
     engine: baidu
     shortcut: bd
     disabled: false
+    categories: [general, web]
+    timeout: 8.0
+    weight: 0.3  # 降低权重，减少查询频率
+    about:
+      website: https://www.baidu.com
+      use_official_api: false
+      require_api_key: false
+      results: HTML
+      language: zh-CN
 
   - name: baidu images
     baidu_category: images
@@ -1855,7 +1864,8 @@ engines:
   - name: sogou
     engine: sogou
     shortcut: sogou
-    disabled: true
+    categories: [general, web]
+    disabled: false
 
   - name: sogou images
     engine: sogou_images
