@@ -5,9 +5,9 @@ services:
     network_mode: host
     restart: unless-stopped
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy-data:/data:rw
-      - caddy-config:/config:rw
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro,Z
+      - caddy-data:/data:rw,Z
+      - caddy-config:/config:rw,Z
     environment:
       - SEARXNG_HOSTNAME=${SEARXNG_HOSTNAME:-localhost}
       - SEARXNG_EMAIL=${SEARXNG_EMAIL:-admin@example.com}
@@ -41,8 +41,8 @@ services:
     ports:
       - "127.0.0.1:8088:8080"
     volumes:
-      - ./searxng:/etc/searxng:rw
-      - searxng-data:/var/cache/searxng:rw
+      - ./searxng:/etc/searxng:rw.Z
+      - searxng-data:/var/cache/searxng:rw,Z
     environment:
       - SEARXNG_BASE_URL=https://${SEARXNG_HOSTNAME:-localhost}/
       - SEARXNG_REDIS_URL=redis://redis:6379/0
