@@ -1199,14 +1199,14 @@ engines:
     search_type: images
     shortcut: kai
     paging: false
-    disable: true
+    disabled: true
 
   - name: karmasearch videos
     engine: karmasearch
     categories: [general, web]
     search_type: videos
     shortcut: kav
-    disable: true
+    disabled: true
 
   - name: karmasearch news
     engine: karmasearch
