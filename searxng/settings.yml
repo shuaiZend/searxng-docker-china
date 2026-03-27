@@ -390,28 +390,28 @@ engines:
 
   - name: aol
     engine: aol
-    disable: true
+    disabled: true
     search_type: search
     categories: [general]
     shortcut: aol
 
   - name: aol images
     engine: aol
-    disable: true
+    disabled: true
     search_type: image
     categories: [images]
     shortcut: aoli
 
   - name: aol videos
     engine: aol
-    disable: true
+    disabled: true
     search_type: video
     categories: [videos]
     shortcut: aolv
 
   - name: arch linux wiki
     engine: archlinux
-    disable: true
+    disabled: true
     shortcut: al
 
   - name: nixos wiki
@@ -486,6 +486,7 @@ engines:
 
   - name: wikipedia
     engine: wikipedia
+    disabled: true
     shortcut: wp
     # add "list" to the array to get results in the results list
     display_type: ["infobox"]
@@ -776,7 +777,8 @@ engines:
     shortcut: wd
     timeout: 3.0
     weight: 2
-    disable: true
+    disabled: true
+    inactive: true
     # add "list" to the array to get results in the results list
     display_type: ["infobox"]
     categories: [general]
@@ -784,34 +786,37 @@ engines:
   - name: duckduckgo
     engine: duckduckgo
     shortcut: ddg
-    disable: true
+    disabled: true
+    inactive: true
 
   - name: duckduckgo images
     engine: duckduckgo_extra
     categories: [images]
     ddg_category: images
     shortcut: ddi
-    disable: true
+    disabled: true
+    inactive: true
 
   - name: duckduckgo videos
     engine: duckduckgo_extra
     categories: [videos]
     ddg_category: videos
     shortcut: ddv
-    disable: true
+    disabled: true
+    inactive: true
 
   - name: duckduckgo news
     engine: duckduckgo_extra
     categories: [news]
     ddg_category: news
     shortcut: ddn
-    disable: true
+    disabled: true
+    inactive: true
 
   - name: duckduckgo weather
     engine: duckduckgo_weather
     shortcut: ddw
     disabled: true
-    disable: true
 
   - name: apple maps
     engine: apple_maps
@@ -1021,27 +1026,27 @@ engines:
   - name: google
     engine: google
     shortcut: go
-    disable: true
+    disabled: true
 
   - name: google images
     engine: google_images
     shortcut: goi
-    disable: true
+    disabled: true
 
   - name: google news
     engine: google_news
     shortcut: gon
-    disable: true
+    disabled: true
 
   - name: google videos
     engine: google_videos
     shortcut: gov
-    disable: true
+    disabled: true
 
   - name: google scholar
     engine: google_scholar
     shortcut: gos
-    disable: true
+    disabled: true
 
   - name: google play apps
     engine: google_play
@@ -1186,7 +1191,7 @@ engines:
     categories: [general, web]
     search_type: web
     shortcut: ka
-    disable: true
+    disabled: true
 
   - name: karmasearch images
     engine: karmasearch
@@ -1952,18 +1957,21 @@ engines:
     engine: startpage
     shortcut: sp
     startpage_categ: web
+    disabled: true
     categories: [general, web]
 
   - name: startpage news
     engine: startpage
     startpage_categ: news
     categories: [news, web]
+    disabled: true
     shortcut: spn
 
   - name: startpage images
     engine: startpage
     startpage_categ: images
     categories: [images, web]
+    disabled: true
     shortcut: spi
 
   - name: steam
@@ -2554,13 +2562,14 @@ engines:
   - name: wttr.in
     engine: wttr
     shortcut: wttr
-    disable: true
+    disabled: true
     timeout: 9.0
 
   - name: braveapi
     engine: braveapi
     # read https://docs.searxng.org/dev/engines/online/brave.html
     api_key: ""
+    disabled: true
     inactive: true
 
   - name: brave
@@ -2569,6 +2578,7 @@ engines:
     time_range_support: true
     paging: true
     categories: [general, web]
+    disabled: true
     brave_category: search
     # brave_spellcheck: true
 
@@ -2577,13 +2587,14 @@ engines:
     network: brave
     shortcut: brimg
     categories: [images, web]
-    disable: true
+    disabled: true
     brave_category: images
 
   - name: brave.videos
     engine: brave
     network: brave
     shortcut: brvid
+    disabled: true
     categories: [videos, web]
     brave_category: videos
 
@@ -2591,6 +2602,7 @@ engines:
     engine: brave
     network: brave
     shortcut: brnews
+    disabled: true
     categories: news
     brave_category: news
 
@@ -2609,7 +2621,7 @@ engines:
   - name: bt4g
     engine: bt4g
     shortcut: bt4g
-    disable: true
+    disabled: true
 
   - name: pkg.go.dev
     engine: pkg_go_dev
