@@ -71,21 +71,21 @@ engines:
   - name: quark
     engine: quark
     shortcut: qr
-    disabled: false
+    disabled: true
     categories: [general, web]
     timeout: 10.0
 
   - name: wolframalpha
     engine: wolframalpha_noapi
     shortcut: wa
-    disabled: false
+    disabled: true
     categories: [general, web]
     timeout: 8.0
 
   - name: google
     engine: google
     shortcut: go
-    disabled: false
+    disabled: true
     categories: [general, web]
 
   - name: duckduckgo
@@ -93,7 +93,7 @@ engines:
     shortcut: ddg
     categories: [general, web]
     ddg_category: web
-    disabled: false
+    disabled: true
 
   - name: baidu
     engine: baidu
